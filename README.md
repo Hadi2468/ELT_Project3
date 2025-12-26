@@ -13,9 +13,9 @@ This project delivers a **cost-efficient**, fully **serverless** batch data pipe
 
 Raw data is securely ingested from **SQL Server** and preserved in the **Bronze layer** to guarantee:
 
-- **Data lineage**
-- **Auditability**
-- **Traceability**
+- Data lineage
+- Auditability
+- Traceability
 
 ---
 
@@ -24,8 +24,8 @@ Raw data is securely ingested from **SQL Server** and preserved in the **Bronze 
 The **Silver layer** applies:
 
 - Standardized transformations  
-- **Data quality rules**  
-- **Schema enforcement**  
+- Data quality rules  
+- Schema enforcement  
 
 This produces clean, reliable **dimension** and **fact tables** ready for downstream analysis.
 
@@ -33,20 +33,20 @@ This produces clean, reliable **dimension** and **fact tables** ready for downst
 
 ## Analytics & Aggregation (Gold Layer)
 
-The **Gold layer** stores **analytics-ready, pre-aggregated Parquet datasets** optimized for:
+The **Gold layer** stores analytics-ready, pre-aggregated Parquet datasets optimized for:
 
-- **High-performance querying**
+- High-performance querying
 - Downstream consumption by BI tools and dashboards
 
 ---
 
 ## Security
 
-To ensure **data security at rest**, all **Amazon S3 buckets** (Bronze, Silver, Gold) are protected using:
+To ensure data security at rest, all **Amazon S3 buckets** (Bronze, Silver, Gold) are protected using:
 
-- **Server-Side Encryption with AWS Key Management Service (SSE-KMS)**
-- **Centralized key management**
-- **Fine-grained access control** through **IAM policies**
+- Server-Side Encryption with **AWS Key Management Service (SSE-KMS)**
+- Centralized key management
+- Fine-grained access control through **IAM policies**
 
 ---
 
@@ -73,5 +73,6 @@ while minimizing **infrastructure management** and **operational costs**.
 
 
  ![System Design](project3_system_design.png)
+
 
 
