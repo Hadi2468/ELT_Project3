@@ -55,7 +55,7 @@ To ensure data security at rest, all **Amazon S3 buckets** (Bronze, Silver, Gold
 The pipeline is **automated, event-driven, and dependency-aware**, orchestrated through:
 
 - **AWS Glue Workflow**
-- Integrated **CI/CD process** for **version-controlled development** and **seamless deployment**
+- Integrated **CI/CD process** for **version-controlled development** and **seamless deployment**!
 
 **Streamlit dashboards** consume the **Gold-layer datasets** directly from **Amazon S3**, ensuring fast access to trusted business metrics with minimal operational overhead.
 
@@ -73,6 +73,7 @@ while minimizing **infrastructure management** and **operational costs**.
 
 
  ![System Design](project3_system_design.png)
+
 
 
 
