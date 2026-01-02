@@ -72,7 +72,8 @@ while minimizing **infrastructure management** and **operational costs**.
 
 
 
- ![System Design](project3_system_design.png)
+ ![System-Design](Project3_System_Design.png)
+
 
 
 
