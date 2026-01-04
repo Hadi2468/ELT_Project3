@@ -1,3 +1,7 @@
+# =============================================
+# Project 3: Glue ETL Job (Bronoze to Silver)
+# =============================================
+ 
 import sys
 import logging
 from pyspark.context import SparkContext
@@ -40,6 +44,7 @@ def normalize_columns(df):
 # =========================
 # dim_date
 # =========================
+logger.info("💥 Spark session initialized")
 try:
     logger.info("Processing dim_date")
 
@@ -53,10 +58,10 @@ try:
         f"{SILVER_BASE}dim_date/"
     )
 
-    logger.info("dim_date written successfully")
+    logger.info("✅️ dim_date written successfully")
 
 except Exception as e:
-    logger.error("Failed processing dim_date", exc_info=True)
+    logger.error("❌ Failed processing dim_date", exc_info=True)
     raise e
 
 # =========================
@@ -117,10 +122,10 @@ try:
         f"{SILVER_BASE}fact_orders/"
     )
 
-    logger.info("fact_orders written successfully")
+    logger.info("✅️ fact_orders written successfully")
 
 except Exception as e:
-    logger.error("Failed processing fact_orders", exc_info=True)
+    logger.error("❌ Failed processing fact_orders", exc_info=True)
     raise e
 
 # =========================
@@ -145,13 +150,13 @@ try:
         f"{SILVER_BASE}fact_options/"
     )
 
-    logger.info("fact_options written successfully")
+    logger.info("✅️ fact_options written successfully")
 
 except Exception as e:
-    logger.error("Failed processing fact_options", exc_info=True)
+    logger.error("❌ Failed processing fact_options", exc_info=True)
     raise e
 
 # -------------------------
 # Job Complete
 # -------------------------
-logger.info("Glue job project3-bronze-silver completed successfully")
+logger.info("✅️ Glue job project3-bronze-silver completed successfully")

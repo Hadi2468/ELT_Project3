@@ -1,3 +1,7 @@
+# ==========================================
+# Project 3: Glue ETL Job (RDS to Bronoze)
+# ==========================================
+
 import sys
 import json
 import logging
@@ -39,10 +43,10 @@ def get_secret(secret_name, region):
         client = boto3.client("secretsmanager", region_name=region)
         response = client.get_secret_value(SecretId=secret_name)
         secret = json.loads(response["SecretString"])
-        logger.info("Successfully retrieved secret from Secrets Manager")
+        logger.info("✅️ Successfully retrieved secret from Secrets Manager")
         return secret
     except Exception as e:
-        logger.error("Failed to retrieve secret", exc_info=True)
+        logger.error("❌ Failed to retrieve secret", exc_info=True)
         raise e
 
 secret = get_secret(SECRET_NAME, REGION_NAME)
@@ -62,6 +66,7 @@ connection_properties = {
 # ------------------------------------
 # Get All Tables from SQL Server
 # ------------------------------------
+logger.info("💥 Spark session initialized")
 def get_table_list():
     query = """
     (SELECT TABLE_SCHEMA, TABLE_NAME
@@ -102,10 +107,10 @@ def ingest_table(table_name):
 
         df.write.mode("overwrite").parquet(target_path)
 
-        logger.info(f"Successfully ingested {table_name}")
+        logger.info(f"✅️ Successfully ingested {table_name}")
 
     except Exception as e:
-        logger.error(f"Failed to ingest table {table_name}", exc_info=True)
+        logger.error(f"❌ Failed to ingest table {table_name}", exc_info=True)
 
 # -------------------------
 # Main Execution
@@ -116,8 +121,8 @@ try:
     for table in tables:
         ingest_table(table)
 
-    logger.info("Glue job completed successfully")
+    logger.info("✅️ Glue job completed successfully")
 
 except Exception as e:
-    logger.critical("Glue job failed", exc_info=True)
+    logger.critical("❌ Glue job failed", exc_info=True)
     raise e

@@ -1,6 +1,9 @@
+# =============================================
+# Project 3: Glue ETL Job (Silver to Gold)
+# =============================================
+
 import sys
 import logging
-from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from pyspark.sql import functions as F
 from pyspark.sql.window import Window
@@ -23,7 +26,7 @@ glueContext = GlueContext(sc)
 spark = glueContext.spark_session
 spark.conf.set("spark.sql.sources.partitionOverwriteMode", "dynamic")
 
-logger.info("Spark session initialized")
+logger.info("💥 Spark session initialized")
 
 try:
     # =====================================================
@@ -40,7 +43,7 @@ try:
         "s3://project3-silver-bucket/fact_options/"
     )
 
-    logger.info("Silver tables loaded successfully")
+    logger.info("✅️ Silver tables loaded successfully")
 
     # =====================================================
     # ENRICH ORDER REVENUE
@@ -222,10 +225,10 @@ try:
     logger.info("fact_orders_location written")
 
 except Exception as e:
-    logger.error("Glue job failed", exc_info=True)
+    logger.error("❌ Glue job failed", exc_info=True)
     raise
 
 # -------------------------
 # JOB COMPLETE
 # -------------------------
-logger.info("Glue job project3-silver-gold completed successfully")
+logger.info("✅️ Glue job project3-silver-gold completed successfully")
