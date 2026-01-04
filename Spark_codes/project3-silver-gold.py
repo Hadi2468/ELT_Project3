@@ -4,6 +4,7 @@
 
 import sys
 import logging
+from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from pyspark.sql import functions as F
 from pyspark.sql.window import Window
